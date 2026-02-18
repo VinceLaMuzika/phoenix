@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Project Gallery – Phoenix Waterproofing & Projects</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Phoenix Waterproofing projects, Pretoria waterproofing gallery, roof repair photos" name="keywords">
+    <meta content="View our portfolio of completed waterproofing, roofing, painting, and renovation projects across Pretoria." name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --phoenix-orange: #E86A00;
+            --phoenix-navy:   #1A2E44;
+            --phoenix-gold:   #FFB347;
+            --phoenix-light:  #F8F9FA;
+            --phoenix-dark:   #0d1820;
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; }
+        h1, h2, h3, h4, h5 { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.01em; }
+
+        .bg-primary     { background-color: var(--phoenix-orange) !important; }
+        .text-primary   { color: var(--phoenix-orange) !important; }
+        .btn-primary    { background-color: var(--phoenix-orange); border-color: var(--phoenix-orange); }
+        .btn-primary:hover { background-color: #c45a00; border-color: #c45a00; }
+
+        /* ===== TOPBAR ===== */
+        .topbar { background: var(--phoenix-dark); border-bottom: 2px solid var(--phoenix-orange); }
+        .topbar-social a { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-right: 10px; transition: color 0.2s; text-decoration: none; }
+        .topbar-social a:hover { color: var(--phoenix-gold); }
+        .topbar-phone { color: #fff; font-weight: 700; font-size: 1rem; }
+        .topbar-phone i { color: var(--phoenix-gold); }
+
+        /* ===== NAVBAR ===== */
+        .navbar { background: #fff !important; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+        .navbar .nav-link {
+            font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.92rem;
+            text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--phoenix-navy) !important; padding: 0.6rem 1rem !important; transition: color 0.2s;
+        }
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active { color: var(--phoenix-orange) !important; }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            position: relative;
+            background: linear-gradient(105deg, var(--phoenix-navy) 0%, var(--phoenix-dark) 100%);
+            padding: 100px 0 80px; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; top: -60px; right: -60px;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(232,106,0,0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-hero::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--phoenix-orange), var(--phoenix-gold), var(--phoenix-orange));
+        }
+        .page-hero-eyebrow {
+            display: inline-block; background: var(--phoenix-orange); color: #fff;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+            padding: 5px 14px; border-radius: 2px; margin-bottom: 16px;
+        }
+        .page-hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800;
+            color: #fff; text-transform: uppercase; line-height: 1; margin-bottom: 16px;
+        }
+        .page-hero h1 span { color: var(--phoenix-gold); }
+        .breadcrumb-item a { color: var(--phoenix-gold); text-decoration: none; }
+        .breadcrumb-item.active { color: rgba(255,255,255,0.6); }
+        .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.3); }
+
+        /* ===== SECTION HELPERS ===== */
+        .section-eyebrow {
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--phoenix-orange); margin-bottom: 10px;
+        }
+        .section-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+            color: var(--phoenix-navy); text-transform: uppercase; line-height: 1.05; margin-bottom: 16px;
+        }
+        .section-title span { color: var(--phoenix-orange); }
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery-section { padding: 100px 0; background: var(--phoenix-light); }
+
+        /* Hidden state for filter */
+        .gallery-col { transition: opacity 0.3s ease; }
+        .gallery-item {
+            position: relative; overflow: hidden; border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.09);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .gallery-item:hover { transform: translateY(-6px); box-shadow: 0 18px 48px rgba(0,0,0,0.18); }
+        .gallery-item img {
+            width: 100%; height: 260px; object-fit: cover;
+            transition: transform 0.5s ease; display: block;
+        }
+        .gallery-item:hover img { transform: scale(1.08); }
+
+        /* Overlay on hover */
+        .gallery-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(26,46,68,0.92) 0%, rgba(26,46,68,0.2) 60%, transparent 100%);
+            opacity: 0; transition: opacity 0.35s ease;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 22px;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay h5 {
+            font-size: 1.1rem; color: #fff; margin-bottom: 4px;
+            transform: translateY(10px); transition: transform 0.35s ease;
+        }
+        .gallery-item:hover .gallery-overlay h5 { transform: translateY(0); }
+        .gallery-overlay p {
+            color: rgba(255,255,255,0.7); font-size: 0.82rem; margin: 0;
+            transform: translateY(10px); transition: transform 0.35s ease 0.05s;
+        }
+        .gallery-item:hover .gallery-overlay p { transform: translateY(0); }
+
+        /* Category badge */
+        .cat-badge {
+            position: absolute; top: 12px; left: 12px;
+            background: var(--phoenix-orange); color: #fff;
+            font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            padding: 4px 12px; border-radius: 20px; z-index: 10;
+        }
+
+        /* Hidden state for filter */
+        .gallery-col { transition: opacity 0.3s ease; }
+        .gallery-col.hidden { display: none; }
+
+        /* ===== CTA STRIP ===== */
+        .cta-strip {
+            background: linear-gradient(105deg, var(--phoenix-dark) 0%, #1A2E44 100%);
+            padding: 80px 0; position: relative; overflow: hidden;
+        }
+        .cta-strip::after {
+            content: ''; position: absolute; bottom: -80px; left: -80px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(232,106,0,0.1) 0%, transparent 70%);
+        }
+        .cta-strip h2 { font-size: clamp(2rem, 4vw, 3rem); color: #fff; text-transform: uppercase; }
+        .cta-strip h2 span { color: var(--phoenix-gold); }
+        .btn-cta-primary {
+            background: var(--phoenix-orange); color: #fff; border: none;
+            padding: 16px 40px; font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+            border-radius: 4px; text-decoration: none;
+            transition: background 0.3s, transform 0.2s; display: inline-block;
+        }
+        .btn-cta-primary:hover { background: #c45a00; color: #fff; transform: translateY(-2px); }
+        .btn-cta-wa {
+            background: #25D366; color: #fff; border: none;
+            padding: 16px 40px; font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+            border-radius: 4px; text-decoration: none;
+            transition: background 0.3s, transform 0.2s; display: inline-block;
+        }
+        .btn-cta-wa:hover { background: #1ebe5d; color: #fff; transform: translateY(-2px); }
+
+        /* ===== FOOTER ===== */
+        .footer-main { background: var(--phoenix-dark); padding: 80px 0 40px; border-top: 3px solid var(--phoenix-orange); }
+        .footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+        .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.65); }
+        .footer-contact-item i { color: var(--phoenix-gold); margin-top: 3px; }
+        .footer-title {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase; color: #fff;
+            margin-bottom: 20px; padding-bottom: 10px;
+            border-bottom: 2px solid var(--phoenix-orange); display: inline-block;
+        }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links a {
+            font-size: 0.88rem; color: rgba(255,255,255,0.55);
+            text-decoration: none; transition: color 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .footer-links a::before { content: '→'; font-size: 0.75rem; color: var(--phoenix-orange); }
+        .footer-links a:hover { color: #fff; }
+        .footer-hours p { font-size: 0.88rem; color: rgba(255,255,255,0.55); margin: 0; }
+        .footer-hours strong { color: rgba(255,255,255,0.85); }
+        .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+        .footer-social-btn {
+            width: 38px; height: 38px; background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.6); font-size: 0.9rem;
+            text-decoration: none; transition: background 0.2s, color 0.2s;
+        }
+        .footer-social-btn:hover { background: var(--phoenix-orange); color: #fff; }
+        .footer-copyright { background: rgba(0,0,0,0.3); padding: 16px 0; text-align: center; font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
+            background: #25D366; color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 28px;
+            box-shadow: 0 4px 20px rgba(37,211,102,.5); z-index: 9999;
+            transition: transform .3s, background .3s; animation: wa-pulse 2.5s infinite; text-decoration: none;
+        }
+        .whatsapp-float:hover { background: #1ebe5d; transform: scale(1.1); color: #fff; }
+        @keyframes wa-pulse {
+            0%   { box-shadow: 0 0 0 0   rgba(37,211,102,.6); }
+            70%  { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0   rgba(37,211,102,0); }
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal { opacity: 0; transform: translateY(36px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.from-left  { transform: translateX(-40px); }
+        .reveal.from-right { transform: translateX(40px); }
+        .reveal.visible    { opacity: 1; transform: translate(0,0); }
+        .stagger-children > * { opacity: 0; transform: translateY(24px); transition: opacity .5s ease, transform .5s ease; }
+        .stagger-children.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.08s; }
+        .stagger-children.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.16s; }
+        .stagger-children.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.24s; }
+        .stagger-children.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.32s; }
+        .stagger-children.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.40s; }
+        .stagger-children.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.48s; }
+        .stagger-children.visible > *:nth-child(7) { opacity:1; transform:none; transition-delay:.56s; }
+        .stagger-children.visible > *:nth-child(8) { opacity:1; transform:none; transition-delay:.64s; }
+        .stagger-children.visible > *:nth-child(9) { opacity:1; transform:none; transition-delay:.72s; }
+        .stagger-children.visible > *:nth-child(10){ opacity:1; transform:none; transition-delay:.80s; }
+        .stagger-children.visible > *:nth-child(11){ opacity:1; transform:none; transition-delay:.88s; }
+        .stagger-children.visible > *:nth-child(12){ opacity:1; transform:none; transition-delay:.96s; }
+
+        .back-to-top { background: var(--phoenix-orange) !important; border-color: var(--phoenix-orange) !important; }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/27739025226?text=Hi%20Phoenix%20Waterproofing!%20I%27d%20like%20to%20get%20a%20quote."
+       class="whatsapp-float" target="_blank" title="WhatsApp us">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Spinner -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width:3rem;height:3rem;"></div>
+    </div>
+
+    <!-- ===== TOPBAR ===== -->
+    <div class="topbar py-2 d-none d-lg-block">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="topbar-social">
+                <span style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;margin-right:14px;">Follow:</span>
+                <a href="https://www.tiktok.com/@phoenixwaterproofing" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61581435274896" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/phoinex-waterproofing-and-projects/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="topbar-phone">
+                <i class="fa fa-phone-alt me-2"></i>073 902 5226
+                <span style="margin:0 14px;color:rgba(255,255,255,0.2);">|</span>
+                <i class="fa fa-envelope me-2" style="color:rgba(255,255,255,0.5);"></i>
+                <span style="color:rgba(255,255,255,0.7);font-weight:400;font-size:0.88rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3d4d5552585354454a4d7d58455c504d5158135e5213475c">[email&#160;protected]</a></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg sticky-top py-0 pe-5">
+        <a href="index.html" class="navbar-brand ps-5 me-0">
+            <img src="img/logo.png" alt="Phoenix Logo" style="height:76px;">
+        </a>
+        <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html"    class="nav-item nav-link">Home</a>
+                <a href="about.html"    class="nav-item nav-link">About</a>
+                <a href="services.html" class="nav-item nav-link">Services</a>
+                <a href="gallery.html"  class="nav-item nav-link active">Gallery</a>
+                <a href="contact.html"  class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="contact.html" class="btn btn-primary px-4 d-none d-lg-block"
+               style="font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Get A Quote</a>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-eyebrow">Our Portfolio</div>
+            <h1>Project <span>Gallery</span></h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery-section">
+        <div class="container">
+
+            <div class="text-center mb-5 reveal">
+                <div class="section-eyebrow">Our Work</div>
+                <h2 class="section-title">Recent Projects<br>Across <span>Pretoria</span></h2>
+                <p style="color:#666;max-width:520px;margin:12px auto 0;">A selection of completed waterproofing, roofing, painting, and renovation projects. Every waterproofing job backed by our 5-year warranty.</p>
+            </div>
+
+
+
+            <!-- Gallery Grid -->
+            <div class="row g-4 gallery-grid stagger-children">
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="waterproofing">
+                    <div class="gallery-item">
+                
+                        <img src="img/gall1.jpg" alt="Torch-on waterproofing">
+                        <div class="gallery-overlay">
+                       
+                                 </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="gutters">
+                    <div class="gallery-item">
+                     
+                        <img src="img/gall2.jpg" alt="Gutter installation">
+                        <div class="gallery-overlay">
+                       
+                               </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="roofing">
+                    <div class="gallery-item">
+                      
+                        <img src="img/gall3.jpg" alt="Tile roof repair">
+                        <div class="gallery-overlay">
+                         
+                               </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="ceilings">
+                    <div class="gallery-item">
+                    
+                        <img src="img/gall4.jpg" alt="Ceiling & Isotherm">
+                        <div class="gallery-overlay">
+                           
+                             </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="painting">
+                    <div class="gallery-item">
+                        
+                        <img src="img/gall5.jpg" alt="Exterior painting">
+                        <div class="gallery-overlay">
+                         
+                               </div>
+                    </div>
+                </div>
+
+               
+            </div>
+            <!-- end gallery grid -->
+
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-strip">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7 reveal from-left">
+                    <div class="section-eyebrow" style="color:var(--phoenix-gold);">Like What You See?</div>
+                    <h2>Your Project Could Be<br><span>Next.</span></h2>
+                    <p style="color:rgba(255,255,255,0.65);margin-top:12px;max-width:480px;">Every waterproofing project comes with a written 5-year warranty. Get your free, no-obligation quote today.</p>
+                </div>
+                <div class="col-lg-5 reveal from-right">
+                    <div class="d-flex flex-wrap gap-3 justify-content-lg-end">
+                        <a href="contact.html" class="btn-cta-primary">Get a Free Quote</a>
+                        <a href="https://wa.me/27739025226" target="_blank" class="btn-cta-wa">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-main">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <img src="img/logo.png" alt="Phoenix Logo" style="height:60px;margin-bottom:16px;filter:brightness(0) invert(1);">
+                    <p class="footer-brand">Professional waterproofing, roofing, and building solutions across Pretoria. Every waterproofing job backed by our 5-year guarantee.</p>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>133 De Bryne Street, Weavind Park, Pretoria 0183</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>073 902 5226</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e191898e848f88999691a18499808c918d84cf828ecf9b80">[email&#160;protected]</a></span></div>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/profile.php?id=61581435274896" target="_blank" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@phoenixwaterproofing" target="_blank" class="footer-social-btn"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/company/phoinex-waterproofing-and-projects/" target="_blank" class="footer-social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-title">Quick Links</div>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.html">Get a Quote</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-title">Office Hours</div>
+                    <div class="footer-hours">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <p>Monday – Friday</p><strong>07:00 – 17:30</strong>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <p>Saturday</p><strong>07:00 – 15:00</strong>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;">
+                            <p>Sunday</p><strong style="color:rgba(255,255,255,0.4);">Closed</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-title">Get In Touch</div>
+                    <div style="background:rgba(232,106,0,0.12);border:1px solid rgba(232,106,0,0.3);border-radius:8px;padding:20px;margin-bottom:14px;">
+                        <div style="color:var(--phoenix-gold);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:6px;">
+                            <i class="fas fa-medal me-2"></i>5-YEAR WARRANTY
+                        </div>
+                        <p style="color:rgba(255,255,255,0.6);font-size:0.85rem;margin:0;">On all waterproofing work. Written guarantee included.</p>
+                    </div>
+                    <a href="https://wa.me/27739025226" target="_blank"
+                       style="display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;border-radius:6px;padding:13px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;"
+                       onmouseover="this.style.background='#1ebe5d'" onmouseout="this.style.background='#25D366'">
+                        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> WhatsApp Us Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-copyright">
+        <div class="container">
+            Copyright &copy; 2026 Phoenix Waterproofing and Projects. All Rights Reserved. &nbsp;·&nbsp; Website Design by <a href="https://www.vbdynamics.co.za" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#FFB347'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">VB Dynamics Holding</a>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JS -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal, .stagger-children');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.08 });
+        revealEls.forEach(el => io.observe(el));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>About Us – Phoenix Waterproofing & Projects</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Waterproofing Pretoria, roof repair, gutter installation, Isotherm, ceiling repairs" name="keywords">
+    <meta content="Phoenix Waterproofing & Projects – 5 year warranty on all waterproofing. Serving Pretoria." name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --phoenix-orange: #E86A00;
+            --phoenix-navy:   #1A2E44;
+            --phoenix-gold:   #FFB347;
+            --phoenix-light:  #F8F9FA;
+            --phoenix-dark:   #0d1820;
+        }
+
+        * { box-sizing: border-box; }
+
+        body { font-family: 'DM Sans', sans-serif; }
+        h1, h2, h3, h4, h5 { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.01em; }
+
+        .bg-primary     { background-color: var(--phoenix-orange) !important; }
+        .text-primary   { color: var(--phoenix-orange) !important; }
+        .btn-primary    { background-color: var(--phoenix-orange); border-color: var(--phoenix-orange); }
+        .btn-primary:hover { background-color: #c45a00; border-color: #c45a00; }
+
+        /* ===== TOPBAR ===== */
+        .topbar {
+            background: var(--phoenix-dark);
+            border-bottom: 2px solid var(--phoenix-orange);
+        }
+        .topbar-social a { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-right: 10px; transition: color 0.2s; text-decoration: none; }
+        .topbar-social a:hover { color: var(--phoenix-gold); }
+        .topbar-phone { color: #fff; font-weight: 700; font-size: 1rem; letter-spacing: 0.03em; }
+        .topbar-phone i { color: var(--phoenix-gold); }
+
+        /* ===== NAVBAR ===== */
+        .navbar { background: #fff !important; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+        .navbar .nav-link {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--phoenix-navy) !important;
+            padding: 0.6rem 1rem !important;
+            transition: color 0.2s;
+        }
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active { color: var(--phoenix-orange) !important; }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            position: relative;
+            background: linear-gradient(105deg, var(--phoenix-navy) 0%, var(--phoenix-dark) 100%);
+            padding: 100px 0 80px;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(232,106,0,0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--phoenix-orange), var(--phoenix-gold), var(--phoenix-orange));
+        }
+        .page-hero-eyebrow {
+            display: inline-block;
+            background: var(--phoenix-orange);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 2px;
+            margin-bottom: 16px;
+        }
+        .page-hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .page-hero h1 span { color: var(--phoenix-gold); }
+        .breadcrumb-item a { color: var(--phoenix-gold); text-decoration: none; }
+        .breadcrumb-item.active { color: rgba(255,255,255,0.6); }
+        .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.3); }
+
+        /* ===== SECTION HELPERS ===== */
+        .section-eyebrow {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--phoenix-orange);
+            margin-bottom: 10px;
+        }
+        .section-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--phoenix-navy);
+            text-transform: uppercase;
+            line-height: 1.05;
+            margin-bottom: 16px;
+        }
+        .section-title span { color: var(--phoenix-orange); }
+
+        /* ===== ABOUT INTRO ===== */
+        .about-intro { padding: 100px 0; background: #fff; }
+        .about-img-stack { position: relative; padding-bottom: 60px; padding-right: 60px; }
+        .about-img-stack .img-main {
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        .about-img-stack .img-accent {
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 55%;
+            border-radius: 6px;
+            border: 5px solid #fff;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+        .about-checklist { list-style: none; padding: 0; margin: 0; }
+        .about-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+            color: #444;
+        }
+        .about-checklist li:last-child { border-bottom: none; }
+        .about-checklist li i { color: var(--phoenix-orange); margin-top: 3px; flex-shrink: 0; }
+
+        /* warranty pill */
+        .warranty-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(232,106,0,0.08);
+            border: 1.5px solid var(--phoenix-orange);
+            color: var(--phoenix-orange);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+
+        /* ===== STORY SECTION ===== */
+        .story-section {
+            padding: 100px 0;
+            background: var(--phoenix-light);
+        }
+        .story-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 36px 32px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            height: 100%;
+            border-top: 4px solid var(--phoenix-orange);
+        }
+        .story-card h3 {
+            font-size: 1.6rem;
+            color: var(--phoenix-navy);
+            margin-bottom: 16px;
+        }
+        .story-card p {
+            font-size: 0.93rem;
+            color: #555;
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+        .story-card p:last-child { margin-bottom: 0; }
+        .story-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--phoenix-orange), #b34d00);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 18px rgba(232,106,0,0.3);
+        }
+
+        /* ===== WHY US ===== */
+        .why-section {
+            padding: 100px 0;
+            background: var(--phoenix-navy);
+            position: relative;
+            overflow: hidden;
+        }
+        .why-section::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(232,106,0,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .why-feature {
+            text-align: center;
+            padding: 36px 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+            transition: background 0.3s, border-color 0.3s, transform 0.3s;
+            height: 100%;
+        }
+        .why-feature:hover {
+            background: rgba(255,255,255,0.09);
+            border-color: rgba(255,179,71,0.3);
+            transform: translateY(-6px);
+        }
+        .why-icon {
+            width: 64px; height: 64px;
+            background: linear-gradient(135deg, var(--phoenix-orange), #b34d00);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 24px rgba(232,106,0,0.35);
+        }
+        .why-feature h4 { font-size: 1.2rem; color: #fff; margin-bottom: 10px; }
+        .why-feature p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0; }
+
+        /* ===== CONTACT CTA STRIP ===== */
+        .cta-strip {
+            background: linear-gradient(105deg, var(--phoenix-dark) 0%, #1A2E44 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-strip::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -80px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(232,106,0,0.1) 0%, transparent 70%);
+        }
+        .cta-strip h2 { font-size: clamp(2rem, 4vw, 3rem); color: #fff; text-transform: uppercase; }
+        .cta-strip h2 span { color: var(--phoenix-gold); }
+        .btn-cta-primary {
+            background: var(--phoenix-orange);
+            color: #fff; border: none;
+            padding: 16px 40px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem; font-weight: 700;
+            letter-spacing: 0.06em; text-transform: uppercase;
+            border-radius: 4px; text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+        .btn-cta-primary:hover { background: #c45a00; color: #fff; transform: translateY(-2px); }
+        .btn-cta-wa {
+            background: #25D366; color: #fff; border: none;
+            padding: 16px 40px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem; font-weight: 700;
+            letter-spacing: 0.06em; text-transform: uppercase;
+            border-radius: 4px; text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+        .btn-cta-wa:hover { background: #1ebe5d; color: #fff; transform: translateY(-2px); }
+
+        /* ===== FOOTER ===== */
+        .footer-main {
+            background: var(--phoenix-dark);
+            padding: 80px 0 40px;
+            border-top: 3px solid var(--phoenix-orange);
+        }
+        .footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+        .footer-contact-item {
+            display: flex; align-items: flex-start; gap: 12px;
+            margin-bottom: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.65);
+        }
+        .footer-contact-item i { color: var(--phoenix-gold); margin-top: 3px; }
+        .footer-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: #fff; margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--phoenix-orange);
+            display: inline-block;
+        }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links a {
+            font-size: 0.88rem; color: rgba(255,255,255,0.55);
+            text-decoration: none; transition: color 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .footer-links a::before { content: '→'; font-size: 0.75rem; color: var(--phoenix-orange); }
+        .footer-links a:hover { color: #fff; }
+        .footer-hours p { font-size: 0.88rem; color: rgba(255,255,255,0.55); margin: 0; }
+        .footer-hours strong { color: rgba(255,255,255,0.85); }
+        .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+        .footer-social-btn {
+            width: 38px; height: 38px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px; display: flex;
+            align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.6); font-size: 0.9rem;
+            text-decoration: none; transition: background 0.2s, color 0.2s;
+        }
+        .footer-social-btn:hover { background: var(--phoenix-orange); color: #fff; }
+        .footer-copyright {
+            background: rgba(0,0,0,0.3); padding: 16px 0;
+            text-align: center; font-size: 0.82rem; color: rgba(255,255,255,0.4);
+        }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px;
+            bottom: 30px; right: 30px;
+            background: #25D366; color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 20px rgba(37,211,102,.5);
+            z-index: 9999; transition: transform .3s, background .3s;
+            animation: wa-pulse 2.5s infinite; text-decoration: none;
+        }
+        .whatsapp-float:hover { background: #1ebe5d; transform: scale(1.1); color: #fff; }
+        @keyframes wa-pulse {
+            0%   { box-shadow: 0 0 0 0   rgba(37,211,102,.6); }
+            70%  { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0   rgba(37,211,102,0); }
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal { opacity: 0; transform: translateY(36px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.from-left  { transform: translateX(-40px); }
+        .reveal.from-right { transform: translateX(40px); }
+        .reveal.visible    { opacity: 1; transform: translate(0,0); }
+        .stagger-children > * { opacity: 0; transform: translateY(24px); transition: opacity .5s ease, transform .5s ease; }
+        .stagger-children.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.1s; }
+        .stagger-children.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.22s; }
+        .stagger-children.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.34s; }
+        .stagger-children.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.46s; }
+
+        .back-to-top { background: var(--phoenix-orange) !important; border-color: var(--phoenix-orange) !important; }
+
+        @media (max-width: 768px) {
+            .about-img-stack { padding-bottom: 40px; padding-right: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/27739025226?text=Hi%20Phoenix%20Waterproofing!%20I%27d%20like%20to%20get%20a%20quote."
+       class="whatsapp-float" target="_blank" title="WhatsApp us">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Spinner -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width:3rem;height:3rem;"></div>
+    </div>
+
+    <!-- ===== TOPBAR ===== -->
+    <div class="topbar py-2 d-none d-lg-block">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="topbar-social">
+                <span style="color:rgba(255,255,255,0.5); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; margin-right:14px;">Follow:</span>
+                <a href="https://www.tiktok.com/@phoenixwaterproofing" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61581435274896" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/phoinex-waterproofing-and-projects/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="topbar-phone">
+                <i class="fa fa-phone-alt me-2"></i>073 902 5226
+                <span style="margin:0 14px; color:rgba(255,255,255,0.2);">|</span>
+                <i class="fa fa-envelope me-2" style="color:rgba(255,255,255,0.5);"></i>
+                <span style="color:rgba(255,255,255,0.7); font-weight:400; font-size:0.88rem;">info@phoenixwp.co.za</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg sticky-top py-0 pe-5">
+        <a href="index.html" class="navbar-brand ps-5 me-0">
+            <img src="img/logo.png" alt="Phoenix Logo" style="height:76px;">
+        </a>
+        <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html"    class="nav-item nav-link">Home</a>
+                <a href="about.html"    class="nav-item nav-link active">About</a>
+                <a href="services.html" class="nav-item nav-link">Services</a>
+                <a href="gallery.html"  class="nav-item nav-link">Gallery</a>
+                <a href="contact.html"  class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="contact.html" class="btn btn-primary px-4 d-none d-lg-block"
+               style="font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">Get A Quote</a>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-eyebrow">Phoenix Waterproofing & Projects</div>
+            <h1>About <span>Us</span></h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT INTRO ===== -->
+    <section class="about-intro">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5 reveal from-left">
+                    <div class="about-img-stack">
+                        <img src="img/mem.jpeg" alt="Waterproofing work" class="img-main">
+                        <img src="img/ext.webp" alt="Gutter installation" class="img-accent">
+                    </div>
+                </div>
+                <div class="col-lg-7 reveal from-right">
+                    <div class="section-eyebrow">Who We Are</div>
+                    <h2 class="section-title">Pretoria's Trusted<br><span>Waterproofing</span> Specialists</h2>
+                    <p style="color:#555; line-height:1.75; margin-bottom:28px;">
+                        Based in Weavind Park, Phoenix Waterproofing & Projects delivers durable, professional solutions across Pretoria and surrounds. We don't just patch problems — we provide lasting protection for your home or business. Every waterproofing job comes with our written <strong>5-year warranty</strong>, because we stand behind every single job we do.
+                    </p>
+                    <ul class="about-checklist mb-4">
+                        <li><i class="fas fa-check-circle"></i><span><strong>Waterproofing – all types:</strong> Liquid membrane, torch-on, epoxy, green roofs</span></li>
+                        <li><i class="fas fa-check-circle"></i><span><strong>General roof repair & roofing:</strong> Leak detection, tile & metal repairs, re-roofing</span></li>
+                        <li><i class="fas fa-check-circle"></i><span><strong>Interior & exterior painting:</strong> Residential and commercial, all surfaces</span></li>
+                        <li><i class="fas fa-check-circle"></i><span><strong>Gutter repair & installation:</strong> Seamless gutters, downpipes, leaf guards</span></li>
+                        <li><i class="fas fa-check-circle"></i><span><strong>Isotherm & ceiling works:</strong> Insulation, ceiling board replacement & repairs</span></li>
+                        <li><i class="fas fa-check-circle"></i><span><strong>Barge & fissure boards:</strong> Replacement, repair, and painting</span></li>
+                    </ul>
+                    <div class="d-flex flex-wrap gap-3 align-items-center">
+                        <span class="warranty-pill"><i class="fas fa-medal"></i> 5-Year Warranty on All Waterproofing</span>
+                    </div>
+                    <div class="row mt-4 pt-2 g-3">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center gap-3">
+                                <div style="width:44px;height:44px;background:var(--phoenix-orange);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                    <i class="fas fa-envelope-open" style="color:#fff;"></i>
+                                </div>
+                                <div>
+                                    <div style="font-size:0.78rem;color:#999;text-transform:uppercase;letter-spacing:0.08em;">Email Us</div>
+                                    <div style="font-weight:600;color:var(--phoenix-navy);font-size:0.9rem;">info@phoenixwp.co.za</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center gap-3">
+                                <div style="width:44px;height:44px;background:var(--phoenix-orange);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                    <i class="fas fa-phone-alt" style="color:#fff;"></i>
+                                </div>
+                                <div>
+                                    <div style="font-size:0.78rem;color:#999;text-transform:uppercase;letter-spacing:0.08em;">Call Us</div>
+                                    <div style="font-weight:600;color:var(--phoenix-navy);font-size:0.9rem;">073 902 5226</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OUR STORY ===== -->
+    <section class="story-section">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <div class="section-eyebrow">Our Story</div>
+                <h2 class="section-title">Built on <span>Quality.</span> Driven by Commitment.</h2>
+                <p style="color:#666; max-width:540px; margin:0 auto;">Two core principles have guided us from the very beginning — and they still do today.</p>
+            </div>
+            <div class="row g-4 stagger-children">
+                <div class="col-lg-6">
+                    <div class="story-card">
+                        <div class="story-icon"><i class="fas fa-hard-hat"></i></div>
+                        <h3>Our Journey</h3>
+                        <p>Phoenix Waterproofing & Projects began as a small operation with a simple mission: protect Pretoria homes and businesses properly. As word spread about our quality workmanship and reliable service, our client base grew — and so did our capabilities.</p>
+                        <p>Today we're a fully registered company based in Weavind Park, serving clients across Pretoria with a comprehensive range of waterproofing, roofing, painting, and building services.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="story-card">
+                        <div class="story-icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Our Commitment</h3>
+                        <p>We understand that your property is one of your biggest investments. That's why we treat every project — from a simple gutter repair to a complete roof waterproofing — with the same level of care and professionalism.</p>
+                        <p>Our team stays current on the latest waterproofing technologies and techniques, ensuring you get solutions that genuinely last. Whether it's liquid membrane, torch-on, or specialist coatings — we have the expertise to protect your property for years to come.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY PHOENIX ===== -->
+    <section class="why-section">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <div class="section-eyebrow" style="color:var(--phoenix-gold);">Why Choose Us</div>
+                <h2 class="section-title" style="color:#fff;">Built on <span style="color:var(--phoenix-gold);">Trust.</span> Backed by Warranty.</h2>
+                <p style="color:rgba(255,255,255,0.6); max-width:540px; margin:0 auto;">We don't chase volume — we focus on quality work, every time. Here's what sets Phoenix apart.</p>
+            </div>
+            <div class="row g-4 stagger-children">
+                <div class="col-md-6 col-lg-3">
+                    <div class="why-feature">
+                        <div class="why-icon"><i class="fas fa-medal"></i></div>
+                        <h4>5-Year Warranty</h4>
+                        <p>Every waterproofing project is backed by a written 5-year warranty. No small print, no excuses.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="why-feature">
+                        <div class="why-icon"><i class="fas fa-tools"></i></div>
+                        <h4>Quality Workmanship</h4>
+                        <p>We use premium materials and take time to do it right — properly, not quickly.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="why-feature">
+                        <div class="why-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h4>Pretoria-Based</h4>
+                        <p>We're local — fast response times and we know the conditions and environment here well.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="why-feature">
+                        <div class="why-icon"><i class="fas fa-comments"></i></div>
+                        <h4>Transparent Pricing</h4>
+                        <p>Free, detailed quotes with no hidden fees. You know exactly what you're paying for upfront.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA STRIP ===== -->
+    <section class="cta-strip">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7 reveal from-left">
+                    <div class="section-eyebrow" style="color:var(--phoenix-gold);">Ready to Get Started?</div>
+                    <h2>Protect Your Property.<br><span>Get a Free Quote Today.</span></h2>
+                    <p style="color:rgba(255,255,255,0.65); margin-top:12px; max-width:480px;">No obligation, completely free. We'll assess your needs and give you a clear, honest quote — usually within 24 hours.</p>
+                </div>
+                <div class="col-lg-5 reveal from-right">
+                    <div class="d-flex flex-wrap gap-3 justify-content-lg-end">
+                        <a href="contact.html" class="btn-cta-primary">Get a Free Quote</a>
+                        <a href="https://wa.me/27739025226" target="_blank" class="btn-cta-wa">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-main">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <img src="img/logo.png" alt="Phoenix Logo" style="height:60px; margin-bottom:16px; filter:brightness(0) invert(1);">
+                    <p class="footer-brand">Professional waterproofing, roofing, and building solutions across Pretoria. Every waterproofing job backed by our 5-year guarantee.</p>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>133 De Bryne Street, Weavind Park, Pretoria 0183</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>073 902 5226</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>info@phoenixwp.co.za</span></div>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/profile.php?id=61581435274896" target="_blank" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@phoenixwaterproofing" target="_blank" class="footer-social-btn"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/company/phoinex-waterproofing-and-projects/" target="_blank" class="footer-social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-title">Quick Links</div>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.html">Get a Quote</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-title">Office Hours</div>
+                    <div class="footer-hours">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <p>Monday – Friday</p><strong>07:00 – 17:30</strong>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <p>Saturday</p><strong>07:00 – 15:00</strong>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;">
+                            <p>Sunday</p><strong style="color:rgba(255,255,255,0.4);">Closed</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-title">Get In Touch</div>
+                    <div style="background:rgba(232,106,0,0.12);border:1px solid rgba(232,106,0,0.3);border-radius:8px;padding:20px;margin-bottom:14px;">
+                        <div style="color:var(--phoenix-gold);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:6px;">
+                            <i class="fas fa-medal me-2"></i>5-YEAR WARRANTY
+                        </div>
+                        <p style="color:rgba(255,255,255,0.6);font-size:0.85rem;margin:0;">On all waterproofing work. Written guarantee included.</p>
+                    </div>
+                    <a href="https://wa.me/27739025226" target="_blank"
+                       style="display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;border-radius:6px;padding:13px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;"
+                       onmouseover="this.style.background='#1ebe5d'" onmouseout="this.style.background='#25D366'">
+                        <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> WhatsApp Us Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Copyright -->
+    <div class="footer-copyright">
+        <div class="container">
+            Copyright &copy; 2026 Phoenix Waterproofing and Projects. All Rights Reserved. &nbsp;·&nbsp; <footer>
+  <p>Website Design by <a href="https://www.vbdynamics.co.za" target="_blank" rel="noopener">VB Dynamics Holding</a></p>
+</footer>
+
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        const revealEls = document.querySelectorAll('.reveal, .stagger-children');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.1 });
+        revealEls.forEach(el => io.observe(el));
+    </script>
+</body>
+</html>
