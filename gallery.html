@@ -26,10 +26,7 @@
             --phoenix-light:  #F8F9FA;
             --phoenix-dark:   #0d1820;
         }
-html, body {
-    overflow-x: hidden;
-}
-
+        html, body { overflow-x: hidden; }
         * { box-sizing: border-box; }
         body { font-family: 'DM Sans', sans-serif; }
         h1, h2, h3, h4, h5 { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.01em; }
@@ -101,8 +98,6 @@ html, body {
         /* ===== GALLERY SECTION ===== */
         .gallery-section { padding: 100px 0; background: var(--phoenix-light); }
 
-        /* Hidden state for filter */
-        .gallery-col { transition: opacity 0.3s ease; }
         .gallery-item {
             position: relative; overflow: hidden; border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.09);
@@ -230,19 +225,75 @@ html, body {
         .reveal.from-left  { transform: translateX(-40px); }
         .reveal.from-right { transform: translateX(40px); }
         .reveal.visible    { opacity: 1; transform: translate(0,0); }
+        /* All 24 gallery items visible — stagger capped at 0.5s so nothing stays hidden */
         .stagger-children > * { opacity: 0; transform: translateY(24px); transition: opacity .5s ease, transform .5s ease; }
-        .stagger-children.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.08s; }
-        .stagger-children.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.16s; }
-        .stagger-children.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.24s; }
-        .stagger-children.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.32s; }
-        .stagger-children.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.40s; }
-        .stagger-children.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.48s; }
-        .stagger-children.visible > *:nth-child(7) { opacity:1; transform:none; transition-delay:.56s; }
-        .stagger-children.visible > *:nth-child(8) { opacity:1; transform:none; transition-delay:.64s; }
-        .stagger-children.visible > *:nth-child(9) { opacity:1; transform:none; transition-delay:.72s; }
-        .stagger-children.visible > *:nth-child(10){ opacity:1; transform:none; transition-delay:.80s; }
-        .stagger-children.visible > *:nth-child(11){ opacity:1; transform:none; transition-delay:.88s; }
-        .stagger-children.visible > *:nth-child(12){ opacity:1; transform:none; transition-delay:.96s; }
+        .stagger-children.visible > * { opacity: 1; transform: none; }
+        .stagger-children.visible > *:nth-child(1)  { transition-delay:.04s; }
+        .stagger-children.visible > *:nth-child(2)  { transition-delay:.08s; }
+        .stagger-children.visible > *:nth-child(3)  { transition-delay:.12s; }
+        .stagger-children.visible > *:nth-child(4)  { transition-delay:.16s; }
+        .stagger-children.visible > *:nth-child(5)  { transition-delay:.20s; }
+        .stagger-children.visible > *:nth-child(6)  { transition-delay:.24s; }
+        .stagger-children.visible > *:nth-child(7)  { transition-delay:.28s; }
+        .stagger-children.visible > *:nth-child(8)  { transition-delay:.32s; }
+        .stagger-children.visible > *:nth-child(9)  { transition-delay:.36s; }
+        .stagger-children.visible > *:nth-child(10) { transition-delay:.40s; }
+        .stagger-children.visible > *:nth-child(11) { transition-delay:.44s; }
+        .stagger-children.visible > *:nth-child(12) { transition-delay:.48s; }
+        .stagger-children.visible > *:nth-child(13) { transition-delay:.50s; }
+        .stagger-children.visible > *:nth-child(14) { transition-delay:.50s; }
+        .stagger-children.visible > *:nth-child(15) { transition-delay:.50s; }
+        .stagger-children.visible > *:nth-child(16) { transition-delay:.50s; }
+        .stagger-children.visible > *:nth-child(17) { transition-delay:.50s; }
+        .stagger-children.visible > *:nth-child(18) { transition-delay:.50s; }
+        .stagger-children.visible > *:nth-child(19) { transition-delay:.50s; }
+        .stagger-children.visible > *:nth-child(20) { transition-delay:.50s; }
+        .stagger-children.visible > *:nth-child(21) { transition-delay:.50s; }
+        .stagger-children.visible > *:nth-child(22) { transition-delay:.50s; }
+        .stagger-children.visible > *:nth-child(23) { transition-delay:.50s; }
+        .stagger-children.visible > *:nth-child(24) { transition-delay:.50s; }
+
+        /* ===== LIGHTBOX ===== */
+        .gallery-item { cursor: zoom-in; }
+        #lightbox {
+            display: none;
+            position: fixed; inset: 0; z-index: 99999;
+            background: rgba(0,0,0,0.92);
+            align-items: center; justify-content: center;
+            animation: lb-fade .2s ease;
+        }
+        #lightbox.active { display: flex; }
+        @keyframes lb-fade { from { opacity:0; } to { opacity:1; } }
+        #lightbox img {
+            max-width: 90vw; max-height: 88vh;
+            object-fit: contain; border-radius: 6px;
+            box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+            animation: lb-zoom .25s ease;
+        }
+        @keyframes lb-zoom { from { transform: scale(0.92); } to { transform: scale(1); } }
+        #lb-close {
+            position: fixed; top: 20px; right: 28px;
+            color: #fff; font-size: 2.2rem; cursor: pointer;
+            line-height: 1; opacity: 0.8; transition: opacity .2s, transform .2s;
+            background: none; border: none; z-index: 100000;
+        }
+        #lb-close:hover { opacity: 1; transform: scale(1.15); }
+        #lb-prev, #lb-next {
+            position: fixed; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.25);
+            color: #fff; font-size: 1.8rem; cursor: pointer;
+            width: 52px; height: 52px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            transition: background .2s; z-index: 100000;
+        }
+        #lb-prev { left: 18px; }
+        #lb-next { right: 18px; }
+        #lb-prev:hover, #lb-next:hover { background: var(--phoenix-orange); border-color: var(--phoenix-orange); }
+        #lb-caption {
+            position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%);
+            color: rgba(255,255,255,0.75); font-size: 0.9rem; letter-spacing: 0.05em;
+            text-align: center; pointer-events: none;
+        }
 
         .back-to-top { background: var(--phoenix-orange) !important; border-color: var(--phoenix-orange) !important; }
     </style>
@@ -273,7 +324,7 @@ html, body {
                 <i class="fa fa-phone-alt me-2"></i>073 902 5226
                 <span style="margin:0 14px;color:rgba(255,255,255,0.2);">|</span>
                 <i class="fa fa-envelope me-2" style="color:rgba(255,255,255,0.5);"></i>
-                <span style="color:rgba(255,255,255,0.7);font-weight:400;font-size:0.88rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3d4d5552585354454a4d7d58455c504d5158135e5213475c">info@phoenixwp.co.za</a></span>
+                <span style="color:rgba(255,255,255,0.7);font-weight:400;font-size:0.88rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cca5a2aaa38cbca4a3a9a2a5b4bbbce2afa3e2b6ad">[email&#160;protected]</a></span>
             </div>
         </div>
     </div>
@@ -317,73 +368,286 @@ html, body {
     <section class="gallery-section">
         <div class="container">
 
+            <!-- Section intro -->
             <div class="text-center mb-5 reveal">
-                <div class="section-eyebrow">Our Work</div>
-                <h2 class="section-title">Recent Projects<br>Across <span>Gauteng</span></h2>
-                <p style="color:#666;max-width:520px;margin:12px auto 0;">A selection of completed waterproofing, roofing, painting, and renovation projects. Every waterproofing job backed by our 5-year warranty.</p>
+                <div class="section-eyebrow">Completed Projects</div>
+                <h2 class="section-title">Our <span>Work</span> Speaks for Itself</h2>
+                <p class="text-muted mx-auto" style="max-width:520px;font-size:0.95rem;">
+                    A selection of waterproofing, roofing, painting, and renovation projects completed across Gauteng.
+                </p>
             </div>
-
-
 
             <!-- Gallery Grid -->
             <div class="row g-4 gallery-grid stagger-children">
 
                 <div class="col-lg-4 col-md-6 gallery-col" data-category="waterproofing">
                     <div class="gallery-item">
-                
-                        <img src="img/gall1.jpg" alt="Torch-on waterproofing">
+                        <span class="cat-badge">Waterproofing</span>
+                        <img src="img/001.jpeg" alt="Torch-on waterproofing">
                         <div class="gallery-overlay">
-                       
-                                 </div>
+                            <h5>Torch-On Waterproofing</h5>
+                            <p>Waterproofing</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 gallery-col" data-category="gutters">
                     <div class="gallery-item">
-                     
-                        <img src="img/gall2.jpg" alt="Gutter installation">
+                        <span class="cat-badge">Gutters</span>
+                        <img src="img/002.jpeg" alt="Gutter installation">
                         <div class="gallery-overlay">
-                       
-                               </div>
+                            <h5>Gutter Installation</h5>
+                            <p>Gutters</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 gallery-col" data-category="roofing">
                     <div class="gallery-item">
-                      
-                        <img src="img/gall3.jpg" alt="Tile roof repair">
+                        <span class="cat-badge">Roofing</span>
+                        <img src="img/003.jpeg" alt="Tile roof repair">
                         <div class="gallery-overlay">
-                         
-                               </div>
+                            <h5>Tile Roof Repair</h5>
+                            <p>Roofing</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 gallery-col" data-category="ceilings">
                     <div class="gallery-item">
-                    
-                        <img src="img/gall4.jpg" alt="Ceiling & Isotherm">
+                        <span class="cat-badge">Ceilings</span>
+                        <img src="img/004.jpeg" alt="Ceiling & Isotherm">
                         <div class="gallery-overlay">
-                           
-                             </div>
+                            <h5>Ceiling &amp; Isotherm</h5>
+                            <p>Ceilings</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 gallery-col" data-category="painting">
                     <div class="gallery-item">
-                        
-                        <img src="img/gall5.jpg" alt="Exterior painting">
+                        <span class="cat-badge">Painting</span>
+                        <img src="img/005.jpeg" alt="Exterior painting">
                         <div class="gallery-overlay">
-                         
-                               </div>
+                            <h5>Exterior Painting</h5>
+                            <p>Painting</p>
+                        </div>
                     </div>
                 </div>
 
-               
-            </div>
-            <!-- end gallery grid -->
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="waterproofing">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Waterproofing</span>
+                        <img src="img/006.jpeg" alt="Waterproofing project">
+                        <div class="gallery-overlay">
+                            <h5>Waterproofing Project</h5>
+                            <p>Waterproofing</p>
+                        </div>
+                    </div>
+                </div>
 
-        </div>
-    </section>
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="gutters">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Gutters</span>
+                        <img src="img/007.jpeg" alt="Gutter repair work">
+                        <div class="gallery-overlay">
+                            <h5>Gutter Repair Work</h5>
+                            <p>Gutters</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="roofing">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Roofing</span>
+                        <img src="img/008.jpeg" alt="Roof maintenance">
+                        <div class="gallery-overlay">
+                            <h5>Roof Maintenance</h5>
+                            <p>Roofing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="ceilings">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Ceilings</span>
+                        <img src="img/009.jpeg" alt="Ceiling installation">
+                        <div class="gallery-overlay">
+                            <h5>Ceiling Installation</h5>
+                            <p>Ceilings</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="painting">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Painting</span>
+                        <img src="img/010.jpeg" alt="Painting project">
+                        <div class="gallery-overlay">
+                            <h5>Painting Project</h5>
+                            <p>Painting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="waterproofing">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Waterproofing</span>
+                        <img src="img/011.jpeg" alt="Waterproof sealing">
+                        <div class="gallery-overlay">
+                            <h5>Waterproof Sealing</h5>
+                            <p>Waterproofing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="gutters">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Gutters</span>
+                        <img src="img/012.jpeg" alt="New gutter system">
+                        <div class="gallery-overlay">
+                            <h5>New Gutter System</h5>
+                            <p>Gutters</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="roofing">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Roofing</span>
+                        <img src="img/013.jpeg" alt="Roof repair service">
+                        <div class="gallery-overlay">
+                            <h5>Roof Repair Service</h5>
+                            <p>Roofing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="ceilings">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Ceilings</span>
+                        <img src="img/014.jpeg" alt="Ceiling finishing">
+                        <div class="gallery-overlay">
+                            <h5>Ceiling Finishing</h5>
+                            <p>Ceilings</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="painting">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Painting</span>
+                        <img src="img/015.jpeg" alt="Residential painting">
+                        <div class="gallery-overlay">
+                            <h5>Residential Painting</h5>
+                            <p>Painting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="waterproofing">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Waterproofing</span>
+                        <img src="img/016.jpeg" alt="Torch-on system">
+                        <div class="gallery-overlay">
+                            <h5>Torch-On System</h5>
+                            <p>Waterproofing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="gutters">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Gutters</span>
+                        <img src="img/017.jpeg" alt="Gutter replacement">
+                        <div class="gallery-overlay">
+                            <h5>Gutter Replacement</h5>
+                            <p>Gutters</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="roofing">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Roofing</span>
+                        <img src="img/018.jpeg" alt="Roof restoration">
+                        <div class="gallery-overlay">
+                            <h5>Roof Restoration</h5>
+                            <p>Roofing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="ceilings">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Ceilings</span>
+                        <img src="img/019.jpeg" alt="Ceiling board install">
+                        <div class="gallery-overlay">
+                            <h5>Ceiling Board Install</h5>
+                            <p>Ceilings</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="painting">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Painting</span>
+                        <img src="img/020.jpeg" alt="Exterior wall painting">
+                        <div class="gallery-overlay">
+                            <h5>Exterior Wall Painting</h5>
+                            <p>Painting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="waterproofing">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Waterproofing</span>
+                        <img src="img/021.jpeg" alt="Waterproof membrane">
+                        <div class="gallery-overlay">
+                            <h5>Waterproof Membrane</h5>
+                            <p>Waterproofing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="gutters">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Gutters</span>
+                        <img src="img/022.jpeg" alt="Gutter installation project">
+                        <div class="gallery-overlay">
+                            <h5>Gutter Installation Project</h5>
+                            <p>Gutters</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="roofing">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Roofing</span>
+                        <img src="img/023.jpeg" alt="Roof tile replacement">
+                        <div class="gallery-overlay">
+                            <h5>Roof Tile Replacement</h5>
+                            <p>Roofing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-col" data-category="painting">
+                    <div class="gallery-item">
+                        <span class="cat-badge">Painting</span>
+                        <img src="img/024.jpeg" alt="Commercial painting">
+                        <div class="gallery-overlay">
+                            <h5>Commercial Painting</h5>
+                            <p>Painting</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end gallery-grid -->
+
+        </div><!-- end container -->
+    </section><!-- end gallery-section -->
 
     <!-- ===== CTA ===== -->
     <section class="cta-strip">
@@ -415,7 +679,7 @@ html, body {
                     <p class="footer-brand">Professional waterproofing, roofing, and building solutions across Gauteng. Every waterproofing job backed by our 5-year guarantee.</p>
                     <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>133 De Bryne Street, Weavind Park, Pretoria 0183</span></div>
                     <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>073 902 5226</span></div>
-                    <div class="footer-contact-item"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e191898e848f88999691a18499808c918d84cf828ecf9b80">[email&#160;protected]</a></span></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="30595e565f7040585f555e594847401e535f1e4a51">[email&#160;protected]</a></span></div>
                     <div class="footer-socials">
                         <a href="https://www.facebook.com/profile.php?id=61581435274896" target="_blank" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.tiktok.com/@phoenixwaterproofing" target="_blank" class="footer-social-btn"><i class="fab fa-tiktok"></i></a>
@@ -466,14 +730,26 @@ html, body {
 
     <div class="footer-copyright">
         <div class="container">
-            Copyright &copy; 2026 Phoenix Waterproofing and Projects. All Rights Reserved. &nbsp;·&nbsp; Website Design by <a href="https://www.vbdynamics.co.za" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#FFB347'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">VB Dynamics Holding</a>
+            Copyright &copy; 2026 Phoenix Waterproofing and Projects. All Rights Reserved. &nbsp;·&nbsp; Website Design by
+            <a href="https://www.vbdynamics.co.za" target="_blank" rel="noopener"
+               style="color:rgba(255,255,255,0.5);text-decoration:none;"
+               onmouseover="this.style.color='#FFB347'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">VB Dynamics Holding</a>
         </div>
     </div>
 
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+    <!-- ===== LIGHTBOX ===== -->
+    <div id="lightbox">
+        <button id="lb-close" title="Close">&times;</button>
+        <button id="lb-prev" title="Previous">&#8249;</button>
+        <img id="lb-img" src="" alt="">
+        <button id="lb-next" title="Next">&#8250;</button>
+        <div id="lb-caption"></div>
+    </div>
+
     <!-- JS -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
@@ -488,9 +764,65 @@ html, body {
             entries.forEach(e => {
                 if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
             });
-        }, { threshold: 0.08 });
+        }, { threshold: 0.04 });
         revealEls.forEach(el => io.observe(el));
 
+        // ===== LIGHTBOX =====
+        const lightbox   = document.getElementById('lightbox');
+        const lbImg      = document.getElementById('lb-img');
+        const lbCaption  = document.getElementById('lb-caption');
+        const lbClose    = document.getElementById('lb-close');
+        const lbPrev     = document.getElementById('lb-prev');
+        const lbNext     = document.getElementById('lb-next');
+
+        // Collect all gallery images in order
+        const galleryImgs = Array.from(document.querySelectorAll('.gallery-item img'));
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            const img = galleryImgs[index];
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lbCaption.textContent = (index + 1) + ' / ' + galleryImgs.length + (img.alt ? '  —  ' + img.alt : '');
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showPrev() {
+            openLightbox((currentIndex - 1 + galleryImgs.length) % galleryImgs.length);
+        }
+
+        function showNext() {
+            openLightbox((currentIndex + 1) % galleryImgs.length);
+        }
+
+        // Click on any gallery item opens lightbox
+        document.querySelectorAll('.gallery-item').forEach((item, i) => {
+            item.addEventListener('click', () => openLightbox(i));
+        });
+
+        lbClose.addEventListener('click', closeLightbox);
+        lbPrev.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
+        lbNext.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+
+        // Click backdrop to close
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target === lbImg) closeLightbox();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape')      closeLightbox();
+            if (e.key === 'ArrowLeft')   showPrev();
+            if (e.key === 'ArrowRight')  showNext();
+        });
     </script>
 </body>
 </html>
