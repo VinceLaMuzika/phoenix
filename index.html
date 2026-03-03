@@ -17,6 +17,11 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 
     <style>
         :root {
@@ -996,7 +1001,7 @@ html, body {
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="service-card">
-                        <div class="service-card-img"><img src="img/roofrepair.png" alt="Roof repair"></div>
+                        <div class="service-card-img"><img src="img/004.jpeg" alt="Roof repair"></div>
                         <div class="service-card-body">
                             <div class="service-card-icon"><i class="fas fa-home"></i></div>
                             <h4>Roof Repair & Roofing</h4>
@@ -1035,19 +1040,19 @@ html, body {
                 <div class="col-lg-8 reveal from-right">
                     <div class="gallery-grid">
                         <a class="gallery-item" href="gallery.html">
-                            <img src="img/gall1.jpg" alt="Torch-on waterproofing">
+                            <img src="img/006.jpeg" alt="Torch-on waterproofing">
                        </a>
                         <a class="gallery-item" href="gallery.html">
-                            <img src="img/gall2.jpg" alt="Gutters">
+                            <img src="img/007.jpeg" alt="Gutters">
                         </a>
                         <a class="gallery-item" href="gallery.html">
-                            <img src="img/gall3.jpg" alt="Roof repair">
+                            <img src="img/013.jpeg" alt="Roof repair">
                        </a>
                         <a class="gallery-item" href="gallery.html">
-                            <img src="img/gall4.jpg" alt="Ceiling">
+                            <img src="img/014.jpeg" alt="Ceiling">
                        </a>
                         <a class="gallery-item" href="gallery.html">
-                            <img src="img/gall5.jpg" alt="Painting">
+                            <img src="img/gall1.jpg" alt="Painting">
                        </a>
                     </div>
                 </div>
@@ -1095,56 +1100,60 @@ html, body {
                     </div>
                 </div>
 
-                <!-- Form -->
-                <div class="col-lg-7 reveal from-right">
-                    <div class="quote-form-card">
-                        <h3 style="color:#fff; font-family:'Barlow Condensed',sans-serif; font-size:1.8rem; margin-bottom:24px;">
-                            <i class="fas fa-edit me-2" style="color:var(--phoenix-gold);"></i>Request a Free Quote
-                        </h3>
-                        <form id="homeQuoteForm">
-                            <div class="row g-0">
-                                <div class="col-md-6 pe-md-2">
-                                    <input type="text" class="form-control" placeholder="Full Name *" required>
-                                </div>
-                                <div class="col-md-6 ps-md-2">
-                                    <input type="tel" class="form-control" placeholder="Phone Number *" required>
-                                </div>
-                                <div class="col-md-6 pe-md-2">
-                                    <input type="email" class="form-control" placeholder="Email Address">
-                                </div>
-                                <div class="col-md-6 ps-md-2">
-                                    <select class="form-control form-select" required>
-                                        <option value="">Service Required *</option>
-                                        <option>Waterproofing</option>
-                                        <option>Roof Repair / Roofing</option>
-                                        <option>Painting</option>
-                                        <option>Gutters</option>
-                                        <option>Isotherm / Ceilings</option>
-                                        <option>Barge / Fissure Boards</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <input type="text" class="form-control" placeholder="Property Area (e.g. Centurion, Waterkloof)">
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control" rows="3" placeholder="Brief description of the problem or project *" required style="resize:none;"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn-quote-submit">
-                                        <i class="fas fa-paper-plane me-2"></i>Send My Quote Request
-                                    </button>
-                                </div>
-                            </div>
-                            <p class="text-center mt-3 mb-0" style="color:rgba(255,255,255,0.4); font-size:0.78rem;">
-                                <i class="fa fa-lock me-1"></i>Your details are private and never shared.
-                            </p>
-                        </form>
-                    </div>
+             <!-- Form -->
+<div class="col-lg-7 reveal from-right">
+    <div class="quote-form-card">
+        <h3 style="color:#fff; font-family:'Barlow Condensed',sans-serif; font-size:1.8rem; margin-bottom:24px;">
+            <i class="fas fa-edit me-2" style="color:var(--phoenix-gold);"></i>Request a Free Quote
+        </h3>
+        <form id="homeQuoteForm" action="https://formsubmit.co/info@phoenixwp.co.za" method="POST">
+
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_subject" value="New Quote Request - Phoenix WP">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://phoenixwp.co.za">
+
+            <div class="row g-0">
+                <div class="col-md-6 pe-md-2">
+                    <input type="text" name="Full Name" class="form-control" placeholder="Full Name *" required>
+                </div>
+                <div class="col-md-6 ps-md-2">
+                    <input type="tel" name="Phone Number" class="form-control" placeholder="Phone Number *" required>
+                </div>
+                <div class="col-md-6 pe-md-2">
+                    <input type="email" name="Email Address" class="form-control" placeholder="Email Address">
+                </div>
+                <div class="col-md-6 ps-md-2">
+                    <select name="Service Required" class="form-control form-select" required>
+                        <option value="">Service Required *</option>
+                        <option>Waterproofing</option>
+                        <option>Roof Repair / Roofing</option>
+                        <option>Painting</option>
+                        <option>Gutters</option>
+                        <option>Isotherm / Ceilings</option>
+                        <option>Barge / Fissure Boards</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <input type="text" name="Property Area" class="form-control" placeholder="Property Area (e.g. Centurion, Waterkloof)">
+                </div>
+                <div class="col-12">
+                    <textarea name="Project Description" class="form-control" rows="3" placeholder="Brief description of the problem or project *" required style="resize:none;"></textarea>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn-quote-submit">
+                        <i class="fas fa-paper-plane me-2"></i>Send My Quote Request
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
+            <p class="text-center mt-3 mb-0" style="color:rgba(255,255,255,0.4); font-size:0.78rem;">
+                <i class="fa fa-lock me-1"></i>Your details are private and never shared.
+            </p>
+        </form>
+    </div>
+</div>
 
     <!-- ============ FOOTER ============ -->
     <footer class="footer-main">
@@ -1154,7 +1163,7 @@ html, body {
                 <div class="col-lg-4 col-md-6">
                     <img src="img/logo.png" alt="Phoenix Logo" style="height:60px; margin-bottom:16px; filter:brightness(0) invert(1);">
                     <p>Professional waterproofing, roofing, and building solutions across Gauteng. Every waterproofing job backed by our 5-year guarantee.</p>
-                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>133 De Bryne Street, Weavind Park, Pretoria 0183</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>133 De Bruyn Street, Weavind Park, Pretoria 0184</span></div>
                     <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>073 902 5226</span></div>
                     <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>info@phoenixwp.co.za</span></div>
                     <div class="footer-socials">
